@@ -1,3 +1,3 @@
-THE MASTER IS USED AS THE OFFICIAL VERSIONOF THE CODE. 
+THIS IS THE TESTING BRANCH
 
-DO NOT COMMIT ANY CHANGES TO THE MASTER AS IT WILL AFFECT HOW THE CODE CAN BE TESTED.
+code tests will be conducted in this branch until the a working version can be pushed into the master branch
