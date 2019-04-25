@@ -9,11 +9,37 @@
     </style>
   </head>
   <body>
-    <script src="three.js"></script>
+    <script src="virtual_house/libraries/three.js"></script>
+    <script src="virtual_house/libraries/OrbitControls.js"></script>
     <script>
-      //<code>
+      var scene = new THREE.Scene();
+      var ratio = window.innerWidth/window.innerHeight;
+      var camera = new THREE.PerspectiveCamera( 45, ratio, 0.1, 1000 );
 
-      //checking if this works
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      document.body.appendChild( renderer.domElement );
+
+      controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+      //animation function
+      function animate() {
+      	requestAnimationFrame( animate );
+      	renderer.render( scene, camera );
+      }
+      animate();
+
+      var MyResize = function ( )
+      {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        renderer.setSize(width,height);
+        camera.aspect = width/height;
+        camera.updateProjectionMatrix();
+        renderer.render(scene,camera);
+      };
+
+      window.addEventListener( 'resize', MyResize);
     </script>
   </body>
 </html>
