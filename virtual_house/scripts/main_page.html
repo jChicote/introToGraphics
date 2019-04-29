@@ -13,29 +13,51 @@
     <script src="../libraries/OrbitControls.js"></script>
     <script src="../libraries/dat.gui.min.js"></script>
     <script src="lighting_script.js"></script>
+    <script src="create_scene.js"></script>
     <script src="gui.js"></script>
+
     <script>
+
+
       var scene = new THREE.Scene();
       var ratio = window.innerWidth/window.innerHeight;
-      var camera = new THREE.PerspectiveCamera( 45, ratio, 0.1, 1000 );
 
       var renderer = new THREE.WebGLRenderer();
       renderer.setSize( window.innerWidth, window.innerHeight );
       document.body.appendChild( renderer.domElement );
 
+      var camera = new THREE.PerspectiveCamera( 45, ratio, 0.1, 1000 );
+      camera.position.set(0,0,15);
+      camera.lookAt(0,0,1);
+
       controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+      //global variables
+      var materialFloor;
+      var sphere_material;
+
       //Below will create scene objects/models
+
+      ClearScene();
+      CreateScene();
 
       //Below will create specialised lighting situations
 
-      //Creation of GUI -> Note this can be problematic depending on scope
 
       //animation function
-      function animate() {
-      	requestAnimationFrame( animate );
-      	renderer.render( scene, camera );
+      var Animate = function() {
+
       }
-      animate();
+
+      var MyUpdateLoop = function ( )
+      {
+      	renderer.render( scene, camera );
+
+        controls.update();
+        requestAnimationFrame( MyUpdateLoop );
+      }
+
+      requestAnimationFrame(MyUpdateLoop);
 
       var MyResize = function ( )
       {
@@ -48,6 +70,11 @@
       };
 
       window.addEventListener( 'resize', MyResize);
+      //Creation of GUI -> Note this can be problematic depending on scope
+      var gui;
+
+      buildGui();
+
     </script>
   </body>
 </html>
