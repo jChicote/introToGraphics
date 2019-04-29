@@ -13,6 +13,7 @@
     <script src="../libraries/OrbitControls.js"></script>
     <script src="../libraries/dat.gui.min.js"></script>
     <script src="lighting_script.js"></script>
+    <script src="gui.js"></script>
     <script>
       var scene = new THREE.Scene();
       var ratio = window.innerWidth/window.innerHeight;
@@ -23,14 +24,11 @@
       document.body.appendChild( renderer.domElement );
 
       controls = new THREE.OrbitControls( camera, renderer.domElement );
+      //Below will create scene objects/models
 
-      //Creation of GUI
-      var gui = new dat.GUI( {width: 300} );
-      gui.open();
+      //Below will create specialised lighting situations
 
-      var params = {
-
-      };
+      //Creation of GUI -> Note this can be problematic depending on scope
 
       //animation function
       function animate() {
