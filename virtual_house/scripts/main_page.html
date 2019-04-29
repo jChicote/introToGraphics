@@ -9,8 +9,9 @@
     </style>
   </head>
   <body>
-    <script src="virtual_house/libraries/three.js"></script>
-    <script src="virtual_house/libraries/OrbitControls.js"></script>
+    <script src="../libraries/three.js"></script>
+    <script src="../libraries/OrbitControls.js"></script>
+    <script src="../libraries/dat.gui.min.js"></script>
     <script>
       var scene = new THREE.Scene();
       var ratio = window.innerWidth/window.innerHeight;
@@ -21,6 +22,14 @@
       document.body.appendChild( renderer.domElement );
 
       controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+      //Creation of GUI
+      var gui = new dat.GUI( {width: 300} );
+      gui.open();
+
+      var params = {
+
+      };
 
       //animation function
       function animate() {
