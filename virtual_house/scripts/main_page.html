@@ -17,8 +17,7 @@
     <script src="gui.js"></script>
 
     <script>
-
-
+      //Initialisers
       var scene = new THREE.Scene();
       var ratio = window.innerWidth/window.innerHeight;
 
@@ -35,6 +34,7 @@
       //global variables
       var materialFloor;
       var sphere_material;
+      var sunLight;
 
       //Below will create scene objects/models
 
@@ -43,12 +43,14 @@
 
       //Below will create specialised lighting situations
 
+      sunLight();
 
       //animation function
       var Animate = function() {
 
       }
 
+      //update function
       var MyUpdateLoop = function ( )
       {
       	renderer.render( scene, camera );
@@ -59,6 +61,7 @@
 
       requestAnimationFrame(MyUpdateLoop);
 
+      //screen resize function
       var MyResize = function ( )
       {
         var width = window.innerWidth;
