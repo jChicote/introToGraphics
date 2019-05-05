@@ -7,6 +7,9 @@ function ClearScene(){
 
 function CreateScene() {
 
+  //create model
+  loader.load('', HandleLoad());
+
   //creating the floow
   var geoFloor = new THREE.BoxBufferGeometry( 30, 0.1, 30 );
 	materialFloor = new THREE.MeshStandardMaterial( { color: 0x808080, roughness: 0, metalness: 0 } );
@@ -19,7 +22,6 @@ function CreateScene() {
   sphere_material.color=sphere_color;
   sphere_material.shininess=100;
 
-
   sphere_material.wireframe=false;
   sphere_mesh = new THREE.Mesh( sphere_geometry, sphere_material );
   sphere_mesh.castShadow = true;
@@ -27,5 +29,9 @@ function CreateScene() {
 
   var ambient = new THREE.AmbientLight( 0xffffff, 1 );
   scene.add( ambient );
+
+}
+
+function HandleLoad( geometry ) {
 
 }
