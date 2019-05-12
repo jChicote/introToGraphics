@@ -13,6 +13,8 @@
     <script src="../libraries/OrbitControls.js"></script>
     <script src="../libraries/dat.gui.min.js"></script>
     <script src="../libraries/PLYLoader.js"></script>
+    <script src="../libraries/MTLLoader.js"></script>
+    <script src="../libraries/OBJLoader.js"></script>
     <script src="lighting_script.js"></script>
     <script src="create_scene.js"></script>
     <script src="gui.js"></script>
@@ -83,7 +85,23 @@
       };
 
       window.addEventListener( 'resize', MyResize );
+      
+      //models
+      var loader = new THREE.OBJLoader();
+      loader.load('/models_&_assets/table.obj', function ( mesh )
+      {
+        mesh.position.set(10,0,10);
+        mesh.scale.set(0.1,0.1,0.1);
+        scene.add( mesh );
+      } );
 
+      loader.load('/models_&_assets/desk.obj', function ( mesh )
+      {
+        mesh.position.set(-30,0,-10);
+        mesh.scale.set(0.1,0.1,0.1);
+        scene.add( mesh );
+      } );
+      
       //Creation of GUI -> Note this can be problematic depending on scope
       var gui;
 
