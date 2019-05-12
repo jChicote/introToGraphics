@@ -9,17 +9,25 @@ function ClearScene()
 function CreateScene()
 {
 
-  //create model
+  //------------------- create and load model
   //loader.load('', HandleLoad());
 
-  //creating the floor
+  //------------------- creating the floor
+  var grassTexture = textureLoader.load('textures/grasslight-big.png');
+  var bumpTexture = textureLoader.load('textures/Grass_001_DISP.png');
+
   var geoFloor = new THREE.BoxBufferGeometry( 30, 0.1, 30 );
-	materialFloor = new THREE.MeshPhongMaterial();
+  grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
+  grassTexture.anisotropy = 20;
+  materialFloor = new THREE.MeshPhongMaterial();
   materialFloor.color = new THREE.Color( 0xbee5e8 );
+  materialFloor.map = grassTexture;
+  materialFloor.bumpMap = bumpTexture;
 	var floor = new THREE.Mesh( geoFloor, materialFloor );
   floor.receiveShadow = true;
 	scene.add( floor );
 
+  //----------------- these are tests objects
   var sphere_color = new THREE.Color(0xBE21B2);
   var sphere_geometry = new THREE.SphereGeometry( 2, 32, 32 );
   sphere_material = new THREE.MeshPhongMaterial();
@@ -45,8 +53,6 @@ function CreateScene()
   cube_mesh.castShadow = true;
   cube_mesh.receiveShadow = false;
   scene.add( cube_mesh );
-
-
 
 }
 
