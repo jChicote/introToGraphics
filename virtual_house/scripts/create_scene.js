@@ -8,15 +8,13 @@ function ClearScene()
 
 function CreateScene()
 {
-
-  //------------------- create and load model
-  //loader.load('', HandleLoad());
+  loadModels();
 
   //------------------- creating the floor
   var grassTexture = textureLoader.load('textures/grasslight-big.png');
   var bumpTexture = textureLoader.load('textures/Grass_001_DISP.png');
 
-  var geoFloor = new THREE.BoxBufferGeometry( 30, 0.1, 30 );
+  var geoFloor = new THREE.BoxBufferGeometry( 70, 0.1, 70 );
   grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
   grassTexture.anisotropy = 20;
   materialFloor = new THREE.MeshPhongMaterial();
@@ -56,7 +54,31 @@ function CreateScene()
 
 }
 
-function HandleLoad( geometry )
+function loadModels()
 {
+  modelLoader.load('models_&_assets/table.obj', function ( table )
+  {
+    table.position.set(10,0,10);
+    table.scale.set(0.1,0.1,0.1);
+    table.castShadow=true;
 
+    table.traverse( function ( child ) {
+        if ( child instanceof THREE.Mesh ) { child.castShadow=true; }
+    } );
+
+    scene.add( table );
+    console.log(table);
+  } );
+
+  modelLoader.load('models_&_assets/desk.obj', function ( mesh )
+  {
+    mesh.position.set(-30,0,-10);
+    mesh.scale.set(0.1,0.1,0.1);
+
+    mesh.traverse( function ( child ) {
+        if ( child instanceof THREE.Mesh ) { child.castShadow=true; }
+    } );
+
+    scene.add( mesh );
+  } );
 }
