@@ -36,7 +36,7 @@ function CreateScene()
   var sphere_mesh = new THREE.Mesh( sphere_geometry, sphere_material );
   sphere_mesh.position.y=2;
   sphere_mesh.castShadow = true;
-  sphere_mesh.receiveShadow = false;
+  sphere_mesh.receiveShadow = true;
   scene.add( sphere_mesh );
 
   var cube_color = new THREE.Color(0xC3422B);
@@ -49,7 +49,7 @@ function CreateScene()
   cube_mesh.position.y=3;
   cube_mesh.position.z=5;
   cube_mesh.castShadow = true;
-  cube_mesh.receiveShadow = false;
+  cube_mesh.receiveShadow = true;
   scene.add( cube_mesh );
 
 }
@@ -60,7 +60,6 @@ function loadModels()
   {
     table.position.set(10,0,10);
     table.scale.set(0.1,0.1,0.1);
-    table.castShadow=true;
 
     table.traverse( function ( child ) {
         if ( child instanceof THREE.Mesh ) { child.castShadow=true; }
