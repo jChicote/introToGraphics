@@ -81,4 +81,19 @@ function loadModels()
 
     scene.add( mesh );
   } );
+
+  modelLoader.load('models_&_assets/Haus1.obj', function ( mesh )
+    {
+      mesh.position.set(0,-1,0);
+      mesh.scale.set(0.05,0.05,0.05);
+
+      newModel.traverse(function(child){
+        if ( child instanceof THREE.Mesh ) {
+          //child.material.map = texture;
+          child.castShadow = true;
+        }
+      } );
+      scene.add(mesh);
+      console.log(mesh);
+    });
 }
