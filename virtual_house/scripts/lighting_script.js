@@ -12,14 +12,21 @@ function sunLight()
   sunLight.position.set( 0, 50, 0 );
   sunLight.castShadow = true;
   //sunLight.position.multiplyScalar( 1.3 );
-  sunLight.shadow.mapSize.width = 1024;
-  sunLight.shadow.mapSize.height = 1024;
 
-  sunLight.shadow.camera.fov = 1;
-  sunLight.shadow.camera.fov = 100;
+  //Higher mapsize value increases the shadow quality
+  sunLight.shadow.mapSize.width = 4096;
+  sunLight.shadow.mapSize.height = 4096;
+
+  //Below affects the lights spread around the world.
+  sunLight.shadow.camera.left = -50;
+  sunLight.shadow.camera.right = 50;
+  sunLight.shadow.camera.top = 50;
+  sunLight.shadow.camera.bottom = -50;
+
+  sunLight.shadow.camera.near = 0.5;
+  //sunLight.shadow.camera.fov = 50;
   sunLight.shadow.camera.far = 1000;
-  // THIS COMPONENT IS FIXED DO NOT EDIT
-
+  sunLight.shadowCameraVisible = true;
   scene.add( sunLight );
 
   //This outputs the line guide of the direct light
