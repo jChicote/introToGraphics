@@ -44,10 +44,11 @@
       var sphere_material;
       var cube_material;
       var sunLight;
+      var gui;
 
       //model global variables
-      var modelLoader;
-      var mesh;
+      var modelLoader = new THREE.OBJLoader();
+      //var mesh;
       var textureLoader =  new THREE.TextureLoader();
 
       //Below will create scene objects/models
@@ -87,25 +88,7 @@
 
       window.addEventListener( 'resize', MyResize );
 
-      //models
-      var loader = new THREE.OBJLoader();
-      loader.load('/models_&_assets/table.obj', function ( mesh )
-      {
-        mesh.position.set(10,0,10);
-        mesh.scale.set(0.1,0.1,0.1);
-        scene.add( mesh );
-      } );
-
-      loader.load('/models_&_assets/desk.obj', function ( mesh )
-      {
-        mesh.position.set(-30,0,-10);
-        mesh.scale.set(0.1,0.1,0.1);
-        scene.add( mesh );
-      } );
-
       //Creation of GUI -> Note this can be problematic depending on scope
-      var gui;
-
       buildGui();
 
     </script>
