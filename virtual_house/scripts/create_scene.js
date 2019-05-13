@@ -15,9 +15,15 @@ function CreateScene()
   var grassTexture = textureLoader.load('textures/grasslight-big.png');
   var bumpTexture = textureLoader.load('textures/Grass_001_DISP.png');
 
-  var geoFloor = new THREE.BoxBufferGeometry( 70, 0.1, 70 );
+  var geoFloor = new THREE.BoxBufferGeometry( 130, 0.1, 130 );
   grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
+  bumpTexture.wrapS = bumpTexture.wrapT = THREE.RepeatWrapping;
+
+  grassTexture.repeat.set(4,4);
   grassTexture.anisotropy = 20;
+  bumpTexture.repeat.set(4,4);
+  bumpTexture.anisotropu = 20;
+
   materialFloor = new THREE.MeshPhongMaterial();
   materialFloor.color = new THREE.Color( 0xbee5e8 );
   materialFloor.map = grassTexture;
@@ -63,7 +69,10 @@ function loadModels()
     table.scale.set(0.1,0.1,0.1);
 
     table.traverse( function ( child ) {
-        if ( child instanceof THREE.Mesh ) { child.castShadow=true; }
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow=true;
+          child.receiveShadow = true;
+        }
     } );
 
     scene.add( table );
@@ -76,24 +85,36 @@ function loadModels()
     mesh.scale.set(0.1,0.1,0.1);
 
     mesh.traverse( function ( child ) {
-        if ( child instanceof THREE.Mesh ) { child.castShadow=true; }
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow=true;
+          child.receiveShadow = true;
+        }
     } );
 
     scene.add( mesh );
   } );
 
-  modelLoader.load('models_&_assets/Haus1.obj', function ( mesh )
-    {
-      mesh.position.set(0,-1,0);
-      mesh.scale.set(0.05,0.05,0.05);
+  mtlLoader.setPath('textures/');
+  mtlLoader.load('full_house.mtl', function ( materials )
+  {
+    materials.preload();
+    modelLoader.setMaterials( materials );
 
-      newModel.traverse(function(child){
-        if ( child instanceof THREE.Mesh ) {
-          //child.material.map = texture;
-          child.castShadow = true;
-        }
-      } );
-      scene.add(mesh);
-      console.log(mesh);
-    });
+    modelLoader.load('models_&_assets/full_house.obj', function ( house )
+      {
+        house.position.set(0,-1,0);
+        house.scale.set(0.004,0.004,0.004);
+        house.rotation.x = -90* Math.PI /180;
+
+        house.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            //child.material.map = texture;
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(house);
+      });
+  });
 }

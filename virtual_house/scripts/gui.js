@@ -8,7 +8,7 @@ function buildGui()
       gui = new dat.GUI();
       var params = {
         color: materialFloor.color.getHex(),
-        'sunX': sunLight.position.x,
+        'sunZ': sunLight.position.z,
         'background_color': scene.background.getHex(),
       }
 
@@ -22,11 +22,11 @@ function buildGui()
       } );
 
       // Lighting Folder
-      var sunlightX = lighting.add( params, 'sunX' ).min(-400).max(400).step(1).listen();
+      var sunlightX = lighting.add( params, 'sunZ' ).min(-400).max(400).step(1).listen();
 
       sunlightX.onChange(function(value)
       {
-        sunLight.position.x = value;
+        sunLight.position.z = value;
       });
 
       lighting.addColor( params, 'background_color').onChange( function ( colorVal )
