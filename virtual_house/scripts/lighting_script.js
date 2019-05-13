@@ -11,7 +11,6 @@ function sunLight()
   sunLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
   sunLight.position.set( 0, 50, 0 );
   sunLight.castShadow = true;
-  //sunLight.position.multiplyScalar( 1.3 );
 
   //Higher mapsize value increases the shadow quality
   sunLight.shadow.mapSize.width = 4096;
@@ -26,7 +25,7 @@ function sunLight()
   sunLight.shadow.camera.near = 0.5;
   //sunLight.shadow.camera.fov = 50;
   sunLight.shadow.camera.far = 1000;
-  sunLight.shadowCameraVisible = true;
+  //sunLight.shadowCameraVisible = true;
   scene.add( sunLight );
 
   //This outputs the line guide of the direct light
@@ -34,8 +33,8 @@ function sunLight()
   scene.add( helper );
 
   //ambient light of scene
-  var ambience = new THREE.AmbientLight( 0xE6E0A1, 0.3 );
-  scene.add( ambience );
+  ambient = new THREE.AmbientLight( 0xE6E0A1, 0.3 );
+  scene.add( ambient );
 
 }
 

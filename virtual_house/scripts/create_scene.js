@@ -9,6 +9,7 @@ function ClearScene()
 function CreateScene()
 {
   loadModels();
+  console.log(scene.background.getHex());
 
   //------------------- creating the floor
   var grassTexture = textureLoader.load('textures/grasslight-big.png');

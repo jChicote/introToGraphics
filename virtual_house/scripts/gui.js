@@ -9,7 +9,7 @@ function buildGui()
       var params = {
         color: materialFloor.color.getHex(),
         'sunX': sunLight.position.x,
-
+        'background_color': scene.background.getHex(),
       }
 
       var flooring = gui.addFolder( 'Flooring' );
@@ -28,6 +28,13 @@ function buildGui()
       {
         sunLight.position.x = value;
       });
+
+      lighting.addColor( params, 'background_color').onChange( function ( colorVal )
+      {
+        scene.background.setHex( colorVal );
+      } );
+
+
 
       gui.open();
 }

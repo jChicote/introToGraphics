@@ -25,7 +25,7 @@
       scene.background = new THREE.Color( 0x37595c );
       var ratio = window.innerWidth/window.innerHeight;
 
-      var renderer = new THREE.WebGLRenderer();
+      var renderer = new THREE.WebGLRenderer({antialias: true});
       renderer.setSize( window.innerWidth, window.innerHeight );
 
       renderer.shadowMap.enabled = true;
@@ -47,7 +47,7 @@
 
       //lights
       var sunLight;
-      var ambientLight;
+      var ambient;
 
       //model global variables
       var modelLoader = new THREE.OBJLoader();
