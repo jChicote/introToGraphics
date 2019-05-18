@@ -32,6 +32,7 @@ function buildGui()
       lighting.addColor( params, 'background_color').onChange( function ( colorVal )
       {
         scene.background.setHex( colorVal );
+        //scene.fog.setHex(colorVal);
       } );
 
 

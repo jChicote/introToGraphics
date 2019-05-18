@@ -8,7 +8,7 @@ function sunLight()
   This also includes the specialisated code that allows for
   gui control of the light source. (IF NECESSARY) */
 
-  sunLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
+  sunLight = new THREE.DirectionalLight( 0xffffff, 1 );
   sunLight.position.set( 0, 50, 0 );
   sunLight.castShadow = true;
 
@@ -35,6 +35,13 @@ function sunLight()
   //ambient light of scene
   ambient = new THREE.AmbientLight( 0xE6E0A1, 0.3 );
   scene.add( ambient );
+
+
+  var light = new THREE.PointLight( 0xcce0ff, 1, 100 );
+  light.position.set( 0, 20, 0 );
+  light.castShadow = true;
+  light.bias = 20;
+  scene.add( light );
 
 }
 

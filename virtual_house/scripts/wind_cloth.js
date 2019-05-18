@@ -1,1 +1,10 @@
 
+function CreateCloth()
+{
+
+}
+
+function renderCloth()
+{
+  
+}

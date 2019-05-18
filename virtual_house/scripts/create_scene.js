@@ -15,13 +15,13 @@ function CreateScene()
   var grassTexture = textureLoader.load('textures/grasslight-big.png');
   var bumpTexture = textureLoader.load('textures/Grass_001_DISP.png');
 
-  var geoFloor = new THREE.BoxBufferGeometry( 130, 0.1, 130 );
+  var geoFloor = new THREE.BoxBufferGeometry( 250, 0.1, 250 );
   grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
   bumpTexture.wrapS = bumpTexture.wrapT = THREE.RepeatWrapping;
 
-  grassTexture.repeat.set(4,4);
+  grassTexture.repeat.set(10,10);
   grassTexture.anisotropy = 20;
-  bumpTexture.repeat.set(4,4);
+  bumpTexture.repeat.set(10,10);
   bumpTexture.anisotropu = 20;
 
   materialFloor = new THREE.MeshPhongMaterial();
