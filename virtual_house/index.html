@@ -11,11 +11,13 @@
   <body>
     <script src="libraries/three.js"></script>
     <script src="libraries/OrbitControls.js"></script>
+    <script src="libraries/PointerLockControls.js"></script>
     <script src="libraries/dat.gui.min.js"></script>
     <script src="libraries/MTLLoader.js"></script>
     <script src="libraries/PLYLoader.js"></script>
     <script src="libraries/OBJLoader.js"></script>
     <script src="scripts/user_controls.js"></script>
+
 
     <script src="libraries/stats.min.js"></script>
     <script src="libraries/Cloth.js"></script>
@@ -23,29 +25,50 @@
     <script src="scripts/wind_cloth.js"></script>
     <script src="scripts/lighting_script.js"></script>
     <script src="scripts/create_scene.js"></script>
+    <script src="scripts/camera_controls.js"></script>
     <script src="scripts/gui.js"></script>
 
     <script>
       //Initialisers
-      var scene = new THREE.Scene();
-      scene.fog = new THREE.Fog( 0xcce0ff, 70, 150 );
-
-      scene.background = new THREE.Color( 0xcce0ff );
+      var scene, camera, renderer, controls;
+      var info;
       var ratio = window.innerWidth/window.innerHeight;
 
-      var renderer = new THREE.WebGLRenderer({antialias: true});
-      renderer.setSize( window.innerWidth, window.innerHeight );
+      function init() {
+        info = document.body.appendChild( document.createElement( 'div' ) );
+		    info.style.cssText = 'margin: 20px; position: absolute; ';
+		    info.innerHTML = '<p><button onclick=setControlsOrbit(); >Orbit (Default)</button> ' +
+				'<button onclick=setControlsFirstPerson(); >First Person</button></p>' +
+			  '<div id=msg ></div>';
 
-      renderer.shadowMap.enabled = true;
-      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        scene = new THREE.Scene();
+        scene.fog = new THREE.Fog( 0xcce0ff, 70, 150 );
 
-      document.body.appendChild( renderer.domElement );
+        scene.background = new THREE.Color( 0xcce0ff );
 
-      var camera = new THREE.PerspectiveCamera( 45, ratio, 0.1, 1000 );
-      camera.position.set(20,20,50);
-      camera.lookAt(0,0,1);
+        renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize( window.innerWidth, window.innerHeight );
 
-      controls = new THREE.OrbitControls( camera, renderer.domElement );
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+        document.body.appendChild( renderer.domElement );
+
+        // Starting Orbit Camera
+        //camera = new THREE.PerspectiveCamera( 45, ratio, 0.1, 1000 );
+        //camera.position.set(0,5,50);
+        //camera.lookAt(0,0,1);
+
+        //controls = new THREE.PointerLockControls( camera, renderer.domElement );
+        //controls = new THREE.OrbitControls( camera, renderer.domElement );
+
+        setupControls();
+        setControlsOrbit();
+
+      }
+
+      //activeCamera = cameraFirstPerson;
+      //activeControls = controlsFirstPerson;
 
       //----------------------------VARIABLES---------------------------
       //global variables
@@ -54,6 +77,9 @@
       var cube_material;
       var gui;
 
+
+      //camera variables
+      var cam1, cam2, con1, con2;
       //lights
       var sunLight;
       var ambient;
@@ -66,6 +92,7 @@
       //user control global variables
 
 
+      init();
       //Below will create scene objects/models
 
       ClearScene();
@@ -76,6 +103,7 @@
 
       //animation function
       var Animate = function() {
+
 
       }
 
@@ -102,6 +130,7 @@
         camera.updateProjectionMatrix();
         renderer.render(scene,camera);
       };
+
 
       //control functions:
       UserControls();
