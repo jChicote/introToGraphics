@@ -41,6 +41,8 @@ function sunLight()
   light.position.set( 0, 20, 0 );
   light.castShadow = true;
   light.bias = 20;
+  light.shadow.mapSize.width = 2000;
+  light.shadow.mapSize.height = 2000;
   scene.add( light );
 
 }
