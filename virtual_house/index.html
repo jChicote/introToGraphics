@@ -80,14 +80,20 @@
 
       //camera variables
       var cam1, cam2, con1, con2;
+
       //lights
       var sunLight;
       var ambient;
 
       //model global variables
       var modelLoader = new THREE.OBJLoader();
+      var fenceLoader = new THREE.OBJLoader();
+
       var mtlLoader = new THREE.MTLLoader();
+      var fenceMTL = new THREE.MTLLoader();
       var textureLoader =  new THREE.TextureLoader();
+
+      var fence_front_group = new THREE.Group();
 
       //user control global variables
 
@@ -97,6 +103,10 @@
 
       ClearScene();
       CreateScene();
+
+      fence_front_group.position.set(21,0,17);
+      fence_front_group.rotateY(Math.PI / 2);
+      scene.add( fence_front_group );
 
       //Below will create specialised lighting situations
       sunLight();

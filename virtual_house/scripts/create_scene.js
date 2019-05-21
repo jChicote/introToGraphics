@@ -94,6 +94,7 @@ function loadModels()
     scene.add( mesh );
   } );
 
+  //loads house
   mtlLoader.setPath('textures/');
   mtlLoader.load('full_house.mtl', function ( materials )
   {
@@ -116,5 +117,52 @@ function loadModels()
 
         scene.add(house);
       });
+  });
+
+  //loads fence1
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence1 )
+    {
+
+      fence1.scale.set(0.2,0.2,0.2);
+      fence1.position.set(0,0,0);
+      fence1.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group.add(fence1)
+      //scene.add( fence1 );
+    });
+  });
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence2 )
+    {
+
+      fence2.scale.set(0.2,0.2,0.2);
+      fence2.position.set(0,0,19);
+      fence2.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group.add(fence2)
+      //scene.add( fence1 );
+    });
   });
 }
