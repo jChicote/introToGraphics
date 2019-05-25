@@ -166,7 +166,7 @@ function loadModels()
     });
   });
 
-
+ //loads bed
   bedMTL.setPath('textures/');
   bedMTL.load('bed.mtl', function ( materials )
   {
@@ -191,6 +191,30 @@ function loadModels()
       });
   });
 
+  //loads lamp
+  lampMTL.setPath('textures/');
+  lampMTL.load('lamp.mtl', function ( materials )
+  {
+    materials.preload();
+    lampLoader.setMaterials( materials );
+
+    lampLoader.load('models_&_assets/Lamp.obj', function ( lamp )
+      {
+        lamp.position.set(4,0.2,16.1);
+        lamp.scale.set(0.3,0.3,0.3);
+        //lamp.rotation.y = -90* Math.PI/180;
+
+        lamp.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            //child.material.map = texture;
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(lamp);
+      });
+  });
 
 
 }
