@@ -165,4 +165,32 @@ function loadModels()
       //scene.add( fence1 );
     });
   });
+
+
+  bedMTL.setPath('textures/');
+  bedMTL.load('bed.mtl', function ( materials )
+  {
+    materials.preload();
+    bedLoader.setMaterials( materials );
+
+    bedLoader.load('models_&_assets/bed.obj', function ( bed )
+      {
+        bed.position.set(12,1.5,16.1);
+        bed.scale.set(0.1,0.1,0.1);
+        bed.rotation.y = -90* Math.PI/180;
+
+        bed.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            //child.material.map = texture;
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(bed);
+      });
+  });
+
+
+
 }
