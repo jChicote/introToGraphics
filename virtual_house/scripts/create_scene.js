@@ -138,11 +138,13 @@ function loadModels()
         }
       });
 
-      fence_front_group.add(fence1)
+      fence_front_group_right.add(fence1);
+      //fence_front_group_left.add(fence1);
       //scene.add( fence1 );
     });
   });
 
+  //load fence 3
   fenceMTL.setPath('textures/');
   fenceMTL.load('Fence_White.mtl', function ( fence_material )
   {
@@ -153,7 +155,7 @@ function loadModels()
     {
 
       fence2.scale.set(0.2,0.2,0.2);
-      fence2.position.set(0,0,19);
+      fence2.position.set(0,0,0);
       fence2.traverse(function(child) {
         if ( child instanceof THREE.Mesh ) {
           child.castShadow = true;
@@ -161,13 +163,335 @@ function loadModels()
         }
       });
 
-      fence_front_group.add(fence2)
+      fence_front_group_left.add(fence2);
+      //fence_front_group_left.add(fence2);
       //scene.add( fence1 );
     });
   });
 
- //loads bed
-  bedMTL.setPath('textures/');
+  //load fence side 5
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence3 )
+    {
+
+      fence3.scale.set(0.2,0.2,0.2);
+      fence3.position.set(0,0,0);
+      fence3.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group_sideR.add(fence3);
+      //fence_front_group_left.add(fence2);
+      //scene.add( fence1 );
+    });
+  });
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence4 )
+    {
+
+      fence4.scale.set(0.2,0.2,0.2);
+      fence4.position.set(0,0,0);
+      fence4.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group_sideR.add(fence4);
+    });
+  });
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence5 )
+    {
+
+      fence5.scale.set(0.2,0.2,0.2);
+      fence5.position.set(0,0,19);
+      fence5.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group_sideR.add(fence5);
+    });
+  });
+
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence6 )
+    {
+
+      fence6.scale.set(0.2,0.2,0.2);
+      fence6.position.set(0,0,37);
+      fence6.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group_sideR.add(fence6);
+    });
+  });
+
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence7 )
+    {
+
+      fence7.scale.set(0.2,0.2,0.2);
+      fence7.position.set(0,0,55.8);
+      fence7.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group_sideR.add(fence7);
+    });
+  });
+
+
+  //other side fence left
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence8 )
+    {
+
+      fence8.scale.set(0.2,0.2,0.2);
+      fence8.position.set(0,0,0);
+      fence8.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group_sideL.add(fence8);
+    });
+  });
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence9 )
+    {
+
+      fence9.scale.set(0.2,0.2,0.2);
+      fence9.position.set(0,0,19);
+      fence9.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group_sideL.add(fence9);
+    });
+  });
+
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence10 )
+    {
+
+      fence10.scale.set(0.2,0.2,0.2);
+      fence10.position.set(0,0,37);
+      fence10.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group_sideL.add(fence10);
+    });
+  });
+
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence11 )
+    {
+
+      fence11.scale.set(0.2,0.2,0.2);
+      fence11.position.set(0,0,55.8);
+      fence11.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_front_group_sideL.add(fence11);
+    });
+  });
+
+  //fence back
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence12 )
+    {
+
+      fence12.scale.set(0.2,0.2,0.2);
+      fence12.position.set(0,0,0);
+      fence12.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_back_group.add(fence12);
+    });
+  });
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence13 )
+    {
+
+      fence13.scale.set(0.2,0.2,0.2);
+      fence13.position.set(0,0,19.4);
+      fence13.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_back_group.add(fence13);
+    });
+  });
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence14 )
+    {
+
+      fence14.scale.set(0.2,0.2,0.2);
+      fence14.position.set(0,0,-19.4);
+      fence14.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_back_group.add(fence14);
+    });
+  });
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence15 )
+    {
+
+      fence15.scale.set(0.2,0.2,0.2);
+      fence15.position.set(0,0,-38.8);
+      fence15.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_back_group.add(fence15);
+    });
+  });
+
+  fenceMTL.setPath('textures/');
+  fenceMTL.load('Fence_White.mtl', function ( fence_material )
+  {
+    fence_material.preload();
+    fenceLoader.setMaterials( fence_material );
+
+    fenceLoader.load('models_&_assets/fence.obj', function ( fence16 )
+    {
+
+      fence16.scale.set(0.2,0.2,0.2);
+      fence16.position.set(0,0,-58.2);
+      fence16.traverse(function(child) {
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      fence_back_group.add(fence16);
+    });
+  });
+
+
+
+
+  //loads bed
+  /*bedMTL.setPath('textures/');
   bedMTL.load('bed.mtl', function ( materials )
   {
     materials.preload();
@@ -189,7 +513,7 @@ function loadModels()
 
         scene.add(bed);
       });
-  });
+  });*/
 
   //loads lamp
   lampMTL.setPath('textures/');

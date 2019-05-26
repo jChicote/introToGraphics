@@ -97,7 +97,11 @@
       var bedMTL = new THREE.MTLLoader();
       var lampMTL = new THREE.MTLLoader();
 
-      var fence_front_group = new THREE.Group();
+      var fence_front_group_right = new THREE.Group();
+      var fence_front_group_left = new THREE.Group();
+      var fence_front_group_sideR = new THREE.Group();
+      var fence_front_group_sideL = new THREE.Group();
+      var fence_back_group = new THREE.Group();
 
       //user control global variables
 
@@ -108,9 +112,25 @@
       ClearScene();
       CreateScene();
 
-      fence_front_group.position.set(21,0,17);
-      fence_front_group.rotateY(Math.PI / 2);
-      scene.add( fence_front_group );
+      fence_front_group_right.position.set(21,0,17);
+      fence_front_group_right.rotateY(Math.PI / 2);
+      scene.add( fence_front_group_right );
+
+      fence_front_group_left.position.set(-47,0,17);
+      fence_front_group_left.rotateY(Math.PI / 2);
+      scene.add( fence_front_group_left );
+
+      fence_front_group_sideR.position.set(44.5,0,19.5);
+      fence_front_group_sideR.rotateY(Math.PI);
+      scene.add( fence_front_group_sideR );
+
+      fence_front_group_sideL.position.set(-43,0,19.5);
+      fence_front_group_sideL.rotateY(Math.PI);
+      scene.add( fence_front_group_sideL );
+
+      fence_back_group.position.set(5,0,-58);
+      fence_back_group.rotateY(Math.PI / 2);
+      scene.add( fence_back_group );
 
       //Below will create specialised lighting situations
       sunLight();
