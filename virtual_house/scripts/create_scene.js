@@ -530,13 +530,66 @@ function loadModels()
 
         lamp.traverse(function(child){
           if ( child instanceof THREE.Mesh ) {
-            //child.material.map = texture;
             child.castShadow = true;
             child.receiveShadow = true;
           }
         });
 
         scene.add(lamp);
+      });
+  });
+
+  //loads table
+  coffeetableMTL.setPath('textures/');
+  coffeetableMTL.load('coffeetable.mtl', function ( materials )
+  {
+    materials.preload();
+    coffeetableLoader.setMaterials( materials );
+
+    coffeetableLoader.load('models_&_assets/coffeetable.obj', function ( coffeetable )
+      {
+        coffeetable.position.set(15,0,-15.5);
+        coffeetable.scale.set(0.0035,0.0035,0.0035);
+        coffeetable.rotation.y = -90* Math.PI/180;
+
+        coffeetable.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(coffeetable);
+      });
+  });
+
+    //loads sofa
+
+
+
+  sofaMTL.setPath('textures/');
+  sofaMTL.load('coffeetable.mtl', function ( materials )
+  {
+    materials.preload();
+    sofaLoader.setMaterials( materials );
+
+
+    sofaLoader.load('models_&_assets/sofa.obj', function ( sofa )
+      {
+        sofa.position.set(19.5,0,-15);
+        sofa.scale.set(0.005,0.005,0.005);
+        sofa.rotation.y = -90* Math.PI/180;
+
+
+
+        sofa.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(sofa);
       });
   });
 
