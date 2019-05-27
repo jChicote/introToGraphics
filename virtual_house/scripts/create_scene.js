@@ -514,6 +514,24 @@ function loadModels()
         scene.add(bed);
       });
   });*/
+  //load bed
+  var mtlloader = new THREE.MTLLoader();
+  mtlLoader.setPath('textures/');
+  mtlLoader.load('bed.mtl', function(materials) {
+     materials.preload();
+     var objLoader = new THREE.OBJLoader();
+      objLoader.setMaterials(materials);
+      objLoader.setPath('models_&_assets/');
+      objLoader.load('bed.obj', function(object) {
+        object.position.set(20,1.5,-8);
+        object.scale.set(0.15,0.15,0.15);
+        scene.add(object);
+  }
+
+)
+}
+)
+
 
   //loads lamp
   lampMTL.setPath('textures/');
