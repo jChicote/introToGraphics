@@ -3,19 +3,76 @@
 function UserControls() {
   //this includes functions for onkeydown movement.
 
-  //switching camera view + controls (Currently not working)
-  var onKeyDown = function (event) {
-				switch ( event.keyCode ) {
-					case 70: /*F*/
-          case 102: /*f*/
-						setControlsFirstPerson();
-						break;
+  //fps movement
+  var onKeyDown = function ( event ) {
 
-					case 79: /*O*/
-          case 111: /*o*/
-						setControlsOrbit();
-						break;
+    switch ( event.keyCode ) {
 
-				}
-			}
+      case 38: // up
+      case 87: // w
+        moveForward = true;
+        break;
+
+      case 37: // left
+      case 65: // a
+        moveLeft = true;
+        break;
+
+      case 40: // down
+      case 83: // s
+        moveBackward = true;
+        break;
+
+      case 39: // right
+      case 68: // d
+        moveRight = true;
+        break;
+
+      case 49: //1
+        setControlsOrbit();
+        break;
+
+      case 50: //2
+        setControlsFirstPerson();
+        break;
+    }
+
+  };
+
+  var onKeyUp = function ( event ) {
+
+    switch( event.keyCode ) {
+
+      case 38: // up
+      case 87: // w
+        moveForward = false;
+        break;
+
+      case 37: // left
+      case 65: // a
+        moveLeft = false;
+        break;
+
+      case 40: // down
+      case 83: // s
+        moveBackward = false;
+        break;
+
+      case 39: // right
+      case 68: // d
+        moveRight = false;
+        break;
+
+      case 49: // 1
+        setControlsOrbit();
+        break;
+
+      case 50: // 2
+        setControlsFirstPerson();
+        break;
+    }
+  };
+
+  document.addEventListener( 'keydown', onKeyDown, false );
+  document.addEventListener( 'keyup', onKeyUp, false );
 }
