@@ -63,10 +63,18 @@ function CreateScene()
 
 function loadModels()
 {
-  modelLoader.load('models_&_assets/table.obj', function ( table )
+
+
+  tableMTL.setPath('textures/');
+  tableMTL.load('table.mtl', function ( materials )
   {
-    table.position.set(10,0,10);
-    table.scale.set(0.1,0.1,0.1);
+    materials.preload();
+    tableLoader.setMaterials( materials );
+  tableLoader.load('models_&_assets/table.obj', function ( table )
+  {
+    table.position.set(-5,0,-17);
+    table.scale.set(0.05,0.05,0.05);
+    table.rotation.x= -90* Math.PI /180;
 
     table.traverse( function ( child ) {
         if ( child instanceof THREE.Mesh ) {
@@ -76,10 +84,94 @@ function loadModels()
     } );
 
     scene.add( table );
-    console.log(table);
   } );
+        });
 
-  modelLoader.load('models_&_assets/desk.obj', function ( mesh )
+
+  chairMTL.setPath('textures/');
+  chairMTL.load('chair.mtl', function ( materials )
+  {
+    materials.preload();
+    chairLoader.setMaterials( materials );
+
+
+    chairLoader.load('models_&_assets/chair.obj', function ( chair )
+      {
+        chair.position.set(-5,0,-22);
+        chair.scale.set(0.005,0.005,0.005);
+        //chair.rotation.y = -90* Math.PI/180;
+
+
+
+        chair.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(chair);
+      });
+
+      chairLoader.load('models_&_assets/chair.obj', function ( chair )
+      {
+        chair.position.set(-5,0,-12);
+        chair.scale.set(0.005,0.005,0.005);
+        chair.rotation.y = -180* Math.PI/180;
+
+
+
+        chair.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(chair);
+      });
+
+          chairLoader.load('models_&_assets/chair.obj', function ( chair )
+      {
+        chair.position.set(-3,0,-17);
+        chair.scale.set(0.005,0.005,0.005);
+        chair.rotation.y = -90* Math.PI/180;
+
+
+
+        chair.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(chair);
+      });
+
+              chairLoader.load('models_&_assets/chair.obj', function ( chair )
+      {
+        chair.position.set(-7.5,0,-17);
+        chair.scale.set(0.005,0.005,0.005);
+        chair.rotation.y = -270* Math.PI/180;
+
+
+
+        chair.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(chair);
+      });
+  });
+
+
+
+
+ /* modelLoader.load('models_&_assets/desk.obj', function ( mesh )
   {
     mesh.position.set(-30,0,-10);
     mesh.scale.set(0.1,0.1,0.1);
@@ -92,7 +184,7 @@ function loadModels()
     } );
 
     scene.add( mesh );
-  } );
+  } );*/
 
   //loads house
   mtlLoader.setPath('textures/');
@@ -548,13 +640,66 @@ function loadModels()
 
         lamp.traverse(function(child){
           if ( child instanceof THREE.Mesh ) {
-            //child.material.map = texture;
             child.castShadow = true;
             child.receiveShadow = true;
           }
         });
 
         scene.add(lamp);
+      });
+  });
+
+  //loads table
+  coffeetableMTL.setPath('textures/');
+  coffeetableMTL.load('coffeetable.mtl', function ( materials )
+  {
+    materials.preload();
+    coffeetableLoader.setMaterials( materials );
+
+    coffeetableLoader.load('models_&_assets/coffeetable.obj', function ( coffeetable )
+      {
+        coffeetable.position.set(15,0,-15.5);
+        coffeetable.scale.set(0.0035,0.0035,0.0035);
+        coffeetable.rotation.y = -90* Math.PI/180;
+
+        coffeetable.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(coffeetable);
+      });
+  });
+
+    //loads sofa
+
+
+
+  sofaMTL.setPath('textures/');
+  sofaMTL.load('coffeetable.mtl', function ( materials )
+  {
+    materials.preload();
+    sofaLoader.setMaterials( materials );
+
+
+    sofaLoader.load('models_&_assets/sofa.obj', function ( sofa )
+      {
+        sofa.position.set(19.5,0,-15);
+        sofa.scale.set(0.005,0.005,0.005);
+        sofa.rotation.y = -90* Math.PI/180;
+
+
+
+        sofa.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(sofa);
       });
   });
 
