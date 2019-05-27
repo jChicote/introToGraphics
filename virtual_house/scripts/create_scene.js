@@ -73,7 +73,7 @@ function loadModels()
   tableLoader.load('models_&_assets/table.obj', function ( table )
   {
     table.position.set(-5,0,-17);
-    table.scale.set(0.05,0.05,0.05);
+    table.scale.set(0.045,0.045,0.045);
     table.rotation.x= -90* Math.PI /180;
 
     table.traverse( function ( child ) {
@@ -98,7 +98,7 @@ function loadModels()
     chairLoader.load('models_&_assets/chair.obj', function ( chair )
       {
         chair.position.set(-5,0,-22);
-        chair.scale.set(0.005,0.005,0.005);
+        chair.scale.set(0.0045,0.0045,0.0045);
         //chair.rotation.y = -90* Math.PI/180;
 
 
@@ -116,7 +116,7 @@ function loadModels()
       chairLoader.load('models_&_assets/chair.obj', function ( chair )
       {
         chair.position.set(-5,0,-12);
-        chair.scale.set(0.005,0.005,0.005);
+        chair.scale.set(0.0045,0.0045,0.0045);
         chair.rotation.y = -180* Math.PI/180;
 
 
@@ -134,7 +134,7 @@ function loadModels()
           chairLoader.load('models_&_assets/chair.obj', function ( chair )
       {
         chair.position.set(-3,0,-17);
-        chair.scale.set(0.005,0.005,0.005);
+        chair.scale.set(0.0045,0.0045,0.0045);
         chair.rotation.y = -90* Math.PI/180;
 
 
@@ -152,7 +152,7 @@ function loadModels()
               chairLoader.load('models_&_assets/chair.obj', function ( chair )
       {
         chair.position.set(-7.5,0,-17);
-        chair.scale.set(0.005,0.005,0.005);
+        chair.scale.set(0.0045,0.0045,0.0045);
         chair.rotation.y = -270* Math.PI/180;
 
 
@@ -607,7 +607,7 @@ function loadModels()
       });
   });*/
   //load bed
-  var mtlloader = new THREE.MTLLoader();
+  /*var mtlloader = new THREE.MTLLoader();
   mtlLoader.setPath('textures/');
   mtlLoader.load('bed.mtl', function(materials) {
      materials.preload();
@@ -622,7 +622,7 @@ function loadModels()
 
 )
 }
-)
+)*/
 
 
   //loads lamp
@@ -703,5 +703,107 @@ function loadModels()
       });
   });
 
+  fridgeMTL.setPath('textures/');
+  fridgeMTL.load('fridge.mtl', function ( materials )
+  {
+    materials.preload();
+    fridgeLoader.setMaterials( materials );
+
+
+    fridgeLoader.load('models_&_assets/fridge.obj', function ( fridge )
+      {
+        fridge.position.set(-22,0,-15);
+        fridge.scale.set(0.12,0.12,0.12);
+        fridge.rotation.y = 90* Math.PI/180;
+
+
+
+        fridge.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(fridge);
+      });
+  });
+
+  kitchenMTL.setPath('textures/');
+  kitchenMTL.load('fridge.mtl', function ( materials )
+  {
+    materials.preload();
+    kitchenLoader.setMaterials( materials );
+
+
+    kitchenLoader.load('models_&_assets/kitchen.obj', function ( kitchen )
+      {
+        kitchen.position.set(-22,0,-7);
+        kitchen.scale.set(0.11,0.11,0.11);
+        kitchen.rotation.y = -90* Math.PI/180;
+
+
+
+        kitchen.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(kitchen);
+      });
+  });
+
+  stoveMTL.setPath('textures/');
+  stoveMTL.load('stove.mtl', function ( materials )
+  {
+    materials.preload();
+    stoveLoader.setMaterials( materials );
+
+
+    stoveLoader.load('models_&_assets/stove.obj', function ( stove )
+      {
+        stove.position.set(-22,2.2,0.3);
+        stove.scale.set(0.55,0.55,0.55);
+        stove.rotation.y = 90* Math.PI/180;
+
+
+
+        stove.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(stove);
+      });
+  });
+
+  tvMTL.setPath('textures/');
+  tvMTL.load('stove.mtl', function ( materials )
+  {
+    materials.preload();
+    tvLoader.setMaterials( materials );
+
+
+    tvLoader.load('models_&_assets/tv.obj', function ( tv )
+      {
+        tv.position.set(4.5,0,-17);
+        tv.scale.set(0.8,0.8,0.8);
+        tv.rotation.x = -90* Math.PI/180;
+        tv.rotation.z = -270* Math.PI/180;
+
+        tv.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(tv);
+      });
+  });
 
 }
