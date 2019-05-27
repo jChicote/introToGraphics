@@ -802,6 +802,7 @@ function loadModels()
           }
         });
 
+      //  tv.name="tv";
         scene.add(tv);
       });
   });
