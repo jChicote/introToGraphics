@@ -617,15 +617,15 @@ function loadModels()
 
   //loads lamp
   lampMTL.setPath('textures/');
-  lampMTL.load('lamp.mtl', function ( materials )
+  lampMTL.load('Floorlamp.mtl', function ( materials )
   {
     materials.preload();
     lampLoader.setMaterials( materials );
 
-    lampLoader.load('models_&_assets/Lamp.obj', function ( lamp )
+    lampLoader.load('models_&_assets/Floorlamp.obj', function ( lamp )
       {
         lamp.position.set(4,0.2,16.1);
-        lamp.scale.set(0.3,0.3,0.3);
+        lamp.scale.set(1,0.8,1);
         //lamp.rotation.y = -90* Math.PI/180;
 
         lamp.traverse(function(child){
@@ -662,7 +662,30 @@ function loadModels()
         scene.add(coffeetable);
       });
   });
+//floorlamp
 
+/*lamp2MTL.setPath('textures/');
+lamp2MTL.load('Floorlamp.mtl', function ( materials )
+{
+  materials.preload();
+  lamp2Loader.setMaterials( materials );
+
+
+  lamp2Loader.load('models_&_assets/Floorlamp.obj', function ( lamp2 )
+    {
+      lamp2.position.set(0,0,0);
+      lamp2.scale.set(1,1,0.1);
+
+      lamp2.traverse(function(child){
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      scene.add(lamp2);
+    });
+});*/
     //loads sofa
 
 
@@ -700,10 +723,10 @@ function loadModels()
     fridgeLoader.setMaterials( materials );
 
 
-    fridgeLoader.load('models_&_assets/fridge.obj', function ( fridge )
+    fridgeLoader.load('models_&_assets/Fridge.obj', function ( fridge )
       {
         fridge.position.set(-22,0,-15);
-        fridge.scale.set(0.12,0.12,0.12);
+        fridge.scale.set(0.06,0.06,0.06);
         fridge.rotation.y = 90* Math.PI/180;
 
 
@@ -771,7 +794,9 @@ function loadModels()
       });
   });
 
-  tvMTL.setPath('textures/tv/');
+
+  tvMTL.setPath('textures/');
+
   tvMTL.load('tv.mtl', function ( materials )
   {
     materials.preload();
