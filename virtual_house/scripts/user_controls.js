@@ -103,7 +103,7 @@ function onDocumentMouseDown( event ) {
    }
 }*/
 
-document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+//document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 
   document.addEventListener( 'keydown', onKeyDown, false );
   document.addEventListener( 'keyup', onKeyUp, false );
