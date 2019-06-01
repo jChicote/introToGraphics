@@ -12,3 +12,6 @@ newmtl Samsung_Fridge
 	Kd 0.8980 0.5882 0.5882
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
+	map_Ka Samsung_Fridge_low_Samsung_Fridge_Diffuse.jpg
+	map_Kd Samsung_Fridge_low_Samsung_Fridge_Diffuse.jpg
+	norm Samsung_Fridge_low_Samsung_Fridge_Normal.jpg

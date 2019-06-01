@@ -33,7 +33,7 @@ function CreateScene()
 	scene.add( floor );
 
   //----------------- these are tests objects
-  var sphere_color = new THREE.Color(0xBE21B2);
+  /*var sphere_color = new THREE.Color(0xBE21B2);
   var sphere_geometry = new THREE.SphereGeometry( 2, 32, 32 );
   sphere_material = new THREE.MeshPhongMaterial();
   sphere_material.color=sphere_color;
@@ -57,7 +57,7 @@ function CreateScene()
   cube_mesh.position.z=5;
   cube_mesh.castShadow = true;
   cube_mesh.receiveShadow = true;
-  scene.add( cube_mesh );
+  scene.add( cube_mesh );*/
 
 }
 
@@ -170,28 +170,14 @@ function loadModels()
 
 
 
-
- /* modelLoader.load('models_&_assets/desk.obj', function ( mesh )
-  {
-    mesh.position.set(-30,0,-10);
-    mesh.scale.set(0.1,0.1,0.1);
-
-    mesh.traverse( function ( child ) {
-        if ( child instanceof THREE.Mesh ) {
-          child.castShadow=true;
-          child.receiveShadow = true;
-        }
-    } );
-
-    scene.add( mesh );
-  } );*/
-
   //loads house
   mtlLoader.setPath('textures/');
   mtlLoader.load('full_house.mtl', function ( materials )
   {
     materials.preload();
     modelLoader.setMaterials( materials );
+
+
 
     modelLoader.load('models_&_assets/full_house.obj', function ( house )
       {
@@ -204,6 +190,7 @@ function loadModels()
             //child.material.map = texture;
             child.castShadow = true;
             child.receiveShadow = true;
+
           }
         });
 
@@ -606,6 +593,9 @@ function loadModels()
         scene.add(bed);
       });
   });*/
+
+
+
   //load bed
   /*var mtlloader = new THREE.MTLLoader();
   mtlLoader.setPath('textures/');
@@ -678,7 +668,7 @@ function loadModels()
 
 
   sofaMTL.setPath('textures/');
-  sofaMTL.load('coffeetable.mtl', function ( materials )
+  sofaMTL.load('sofa.mtl', function ( materials )
   {
     materials.preload();
     sofaLoader.setMaterials( materials );
@@ -703,7 +693,7 @@ function loadModels()
       });
   });
 
-  fridgeMTL.setPath('textures/');
+  fridgeMTL.setPath('textures/fridge/');
   fridgeMTL.load('fridge.mtl', function ( materials )
   {
     materials.preload();
@@ -730,7 +720,7 @@ function loadModels()
   });
 
   kitchenMTL.setPath('textures/');
-  kitchenMTL.load('fridge.mtl', function ( materials )
+  kitchenMTL.load('kitchen.mtl', function ( materials )
   {
     materials.preload();
     kitchenLoader.setMaterials( materials );
@@ -755,7 +745,7 @@ function loadModels()
       });
   });
 
-  stoveMTL.setPath('textures/');
+  stoveMTL.setPath('textures/stove/');
   stoveMTL.load('stove.mtl', function ( materials )
   {
     materials.preload();
@@ -781,8 +771,8 @@ function loadModels()
       });
   });
 
-  tvMTL.setPath('textures/');
-  tvMTL.load('stove.mtl', function ( materials )
+  tvMTL.setPath('textures/tv/');
+  tvMTL.load('tv.mtl', function ( materials )
   {
     materials.preload();
     tvLoader.setMaterials( materials );
@@ -790,7 +780,7 @@ function loadModels()
 
     tvLoader.load('models_&_assets/tv.obj', function ( tv )
       {
-        tv.position.set(4.5,0,-17);
+        tv.position.set(4.5,0.1,-17);
         tv.scale.set(0.8,0.8,0.8);
         tv.rotation.x = -90* Math.PI/180;
         tv.rotation.z = -270* Math.PI/180;
@@ -802,9 +792,33 @@ function loadModels()
           }
         });
 
-      //  tv.name="tv";
         scene.add(tv);
       });
   });
+
+
+    cabinetMTL.setPath('textures/');
+  cabinetMTL.load('cabinet.mtl', function ( materials )
+  {
+    materials.preload();
+    cabinetLoader.setMaterials( materials );
+
+
+    cabinetLoader.load('models_&_assets/cabinet.obj', function ( cabinet )
+      {
+        cabinet.position.set(-16,0.1,6.5);
+        //cabinet.scale.set(0.8,0.8,0.8);
+
+        cabinet.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(cabinet);
+      });
+  });
+
 
 }

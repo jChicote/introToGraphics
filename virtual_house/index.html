@@ -16,7 +16,6 @@
     <script src="libraries/MTLLoader.js"></script>
     <script src="libraries/PLYLoader.js"></script>
     <script src="libraries/OBJLoader.js"></script>
-    <script src="scripts/user_controls.js"></script>
 
 
     <script src="libraries/stats.min.js"></script>
@@ -27,6 +26,7 @@
     <script src="scripts/create_scene.js"></script>
     <script src="scripts/camera_controls.js"></script>
     <script src="scripts/gui.js"></script>
+    <script src="scripts/user_controls.js"></script>
 
     <script>
       //Initialisers
@@ -102,6 +102,7 @@
       var kitchenLoader = new THREE.OBJLoader();
       var stoveLoader = new THREE.OBJLoader();
       var tvLoader = new THREE.OBJLoader();
+      var cabinetLoader = new THREE.OBJLoader();
 
 
 
@@ -118,6 +119,7 @@
       var kitchenMTL = new THREE.MTLLoader();
       var stoveMTL = new THREE.MTLLoader();
       var tvMTL = new THREE.MTLLoader();
+      var cabinetMTL = new THREE.MTLLoader();
 
 
       var fence_front_group_right = new THREE.Group();

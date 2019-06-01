@@ -10,3 +10,7 @@ newmtl wire_028149177
 	Ka 0.1098 0.5843 0.6941
 	Kd 0.1098 0.5843 0.6941
 	Ks 0.3500 0.3500 0.3500
+	map_Ka wood.jpg
+	map_Kd wood.jpg
+	map_bump wood.jpg
+	bump wood.jpg
