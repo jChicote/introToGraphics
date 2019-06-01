@@ -733,10 +733,10 @@ lamp2MTL.load('Floorlamp.mtl', function ( materials )
     fridgeLoader.setMaterials( materials );
 
 
-    fridgeLoader.load('models_&_assets/fridge.obj', function ( fridge )
+    fridgeLoader.load('models_&_assets/Fridge.obj', function ( fridge )
       {
         fridge.position.set(-22,0,-15);
-        fridge.scale.set(0.12,0.12,0.12);
+        fridge.scale.set(0.06,0.06,0.06);
         fridge.rotation.y = 90* Math.PI/180;
 
 
