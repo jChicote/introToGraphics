@@ -10,6 +10,6 @@ newmtl wire_030030030
 	Ka 0.1176 0.1176 0.1176
 	Kd 0.1176 0.1176 0.1176
 	Ks 0.3500 0.3500 0.3500
-	map_Ka Cat_N.jpg
-	map_Kd Cat_D.jpg
-	map_Ks Cat_S.jpg
+	map_Ka Cats_N.jpg
+	map_Kd Cats_D.jpg
+	map_Ks Cats_S.jpg
