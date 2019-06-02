@@ -820,6 +820,30 @@ lamp2MTL.load('Floorlamp.mtl', function ( materials )
         scene.add(tv);
       });
   });
+  //lilylamp
+  lilyMTL.setPath('textures/');
+
+  lilyMTL.load('Lamp.mtl', function ( materials )
+  {
+    materials.preload();
+    lilylampLoader.setMaterials( materials );
+
+
+  lilylampLoader.load('models_&_assets/Lamp.obj', function ( lilylamp )
+      {
+        lilylamp.position.set(0,0,0);
+        lilylamp.scale.set(0.5,0.5,0.5);
+
+        lilylamp.traverse(function(child){
+          if ( child instanceof THREE.Mesh ) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+
+        scene.add(lilylamp);
+      });
+  });
 
 
     cabinetMTL.setPath('textures/');
