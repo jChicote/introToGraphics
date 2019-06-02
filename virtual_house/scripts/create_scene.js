@@ -570,7 +570,7 @@ function loadModels()
 
 
   //loads bed
-  /*bedMTL.setPath('textures/');
+  bedMTL.setPath('textures/');
   bedMTL.load('bed.mtl', function ( materials )
   {
     materials.preload();
@@ -578,8 +578,8 @@ function loadModels()
 
     bedLoader.load('models_&_assets/bed.obj', function ( bed )
       {
-        bed.position.set(12,1.5,16.1);
-        bed.scale.set(0.1,0.1,0.1);
+        bed.position.set(22,0,12);
+        bed.scale.set(0.005,0.005,0.005);
         bed.rotation.y = -90* Math.PI/180;
 
         bed.traverse(function(child){
@@ -592,7 +592,7 @@ function loadModels()
 
         scene.add(bed);
       });
-  });*/
+  });
 
 
 
