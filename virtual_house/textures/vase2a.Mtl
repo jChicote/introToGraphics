@@ -1,0 +1,27 @@
+# Created By Carrara 7.0newmtl
+Side_face_0
+Ns 160 d 1
+Ni 0.001
+illum 2
+Ka 0.2 0.2 0.2
+Kd 0.964706 0.835294 0.235294
+Ks 0.19802 0.19802 0.19802
+map_Kd Side_face_04.jpg
+
+newmtl Front_face_0
+Ns 160 d 1
+Ni 0.001
+illum 2
+Ka 0.2 0.2 0.2
+Kd 0.964706 0.835294 0.235294
+Ks 0.19802 0.19802 0.19802
+map_Kd Front_face_01.jpg
+
+newmtl Front_face_1
+Ns 160 d 1
+Ni 0.001
+illum 2
+Ka 0.2 0.2 0.2
+Kd 0.964706 0.835294 0.235294
+Ks 0.19802 0.19802 0.19802
+map_Kd Front_face_11.jpg

@@ -32,6 +32,33 @@ function CreateScene()
   floor.receiveShadow = true;
 	scene.add( floor );
 
+  //----------------- these are tests objects
+  /*var sphere_color = new THREE.Color(0xBE21B2);
+  var sphere_geometry = new THREE.SphereGeometry( 2, 32, 32 );
+  sphere_material = new THREE.MeshPhongMaterial();
+  sphere_material.color=sphere_color;
+  sphere_material.shininess=10;
+  sphere_material.wireframe=false;
+
+  var sphere_mesh = new THREE.Mesh( sphere_geometry, sphere_material );
+  sphere_mesh.position.y=2;
+  sphere_mesh.castShadow = true;
+  sphere_mesh.receiveShadow = true;
+  scene.add( sphere_mesh );
+
+  var cube_color = new THREE.Color(0xC3422B);
+  var cube_geometry = new THREE.BoxGeometry(4,4, 4);
+  cube_material = new THREE.MeshPhongMaterial();
+  cube_material.color = cube_color;
+  cube_material.wireframe=false;
+
+  var cube_mesh = new THREE.Mesh( cube_geometry, cube_material );
+  cube_mesh.position.y=3;
+  cube_mesh.position.z=5;
+  cube_mesh.castShadow = true;
+  cube_mesh.receiveShadow = true;
+  scene.add( cube_mesh );*/
+
 }
 
 function loadModels()
@@ -841,6 +868,64 @@ lamp2MTL.load('Floorlamp.mtl', function ( materials )
         scene.add(cabinet);
       });
   });
+  //artwork
+  artworkLoader.load('models_&_assets/Elephant.obj', function ( artwork )
+    {
+      artwork.position.set(-8,0,15);
+      artwork.scale.set(0.4,0.4,0.4);
 
+      artwork.traverse(function(child){
+        if ( child instanceof THREE.Mesh ) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
+
+      scene.add(artwork);
+    });
+    //vase2
+    vase2MTL.setPath('textures/');
+    vase2MTL.load('Wild.mtl', function ( materials )
+    {
+      materials.preload();
+      vase2Loader.setMaterials( materials );
+
+      vase2Loader.load('models_&_assets/Wild.obj', function ( vase2 )
+        {
+          vase2.position.set(18,0,-8);
+          vase2.scale.set(0.2,0.2,0.2);
+
+          vase2.traverse(function(child){
+            if ( child instanceof THREE.Mesh ) {
+              child.castShadow = true;
+              child.receiveShadow = true;
+            }
+          });
+
+          scene.add(vase2);
+        });
+    });
+    //vase2a
+    vase2aMTL.setPath('textures/');
+    vase2aMTL.load('Cats.mtl', function ( materials )
+    {
+      materials.preload();
+      vase2aLoader.setMaterials( materials );
+
+      vase2aLoader.load('models_&_assets/Cats.obj', function ( vase2a )
+        {
+          vase2a.position.set(10,0,0);
+          vase2a.scale.set(0.01,0.01,0.01);
+
+          vase2a.traverse(function(child){
+            if ( child instanceof THREE.Mesh ) {
+              child.castShadow = true;
+              child.receiveShadow = true;
+            }
+          });
+
+          scene.add(vase2a);
+        });
+    });
 
 }
