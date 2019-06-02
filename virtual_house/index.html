@@ -65,10 +65,10 @@
       //----------------------------VARIABLES---------------------------
       //global variables
       var materialFloor;
-      var sphere_material;
+      var spherelightGeometry = new THREE.SphereGeometry( 0.3, 15, 15 );
+      var sphere_material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
       var cube_material;
       var gui;
-
 
       //camera variables
       var cam1, cam2, con1, con2;
@@ -84,10 +84,18 @@
 			var velocity = new THREE.Vector3();
 			var direction = new THREE.Vector3();
 
-
       //lights
       var sunLight;
       var ambient;
+      var light1;
+      var light2;
+      var light3;
+      var light4;
+      var light5;
+      var light6;
+      var light7;
+      var light8;
+      var light9;
 
       //model global variables
       var modelLoader = new THREE.OBJLoader();
@@ -128,8 +136,16 @@
       var fence_front_group_sideL = new THREE.Group();
       var fence_back_group = new THREE.Group();
 
-      //user control global variables
-
+      //orb object global variables
+      var orb1;
+      var orb2;
+      var orb3;
+      var orb4;
+      var orb5;
+      var orb6;
+      var orb7;
+      var orb8;
+      var orb9;
 
       init();
       animate();
@@ -160,6 +176,7 @@
 
       //Below will create specialised lighting situations
       sunLight();
+      outdoorLight();
 
       //animation function
       //var Animate = function () {}
