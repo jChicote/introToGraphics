@@ -58,8 +58,69 @@ function CreateScene()
   cube_mesh.castShadow = true;
   cube_mesh.receiveShadow = true;
   scene.add( cube_mesh );*/
-
 }
+
+function woodFloors()
+{
+
+  var wood = textureLoader.load('textures/woodfloor.jpg');
+  wood.wrapS = wood.wrapT = THREE.RepeatWrapping;
+  wood.repeat.set(10,10);
+  wood.anisotropy = 20;
+
+
+var insideFloor = new THREE.BoxBufferGeometry( 49, 0.1, 45 );
+
+tile= new THREE.MeshPhongMaterial();
+tile.map= wood;
+var insideWood = new THREE.Mesh(insideFloor,tile);
+insideWood.receiveShadow = true;
+
+  scene.add(insideWood);
+insideWood.position.set(0,0.16,-3);
+}
+
+function tileFloors()
+{
+
+  var tiles = textureLoader.load('textures/tilesfloor.jpg');
+  tiles.wrapS = tiles.wrapT = THREE.RepeatWrapping;
+  tiles.repeat.set(10,10);
+  tiles.anisotropy = 20;
+
+
+var insideFloor = new THREE.BoxBufferGeometry( 49, 0.1, 45 );
+
+tile= new THREE.MeshPhongMaterial();
+tile.map= tiles;
+var insideTiles = new THREE.Mesh(insideFloor,tile);
+insideTiles.receiveShadow = true;
+
+  scene.add(insideTiles);
+insideTiles.position.set(0,0.16,-3);
+}
+
+function tile2Floors()
+{
+
+  var tiles2 = textureLoader.load('textures/tiles2.jpg');
+  tiles2.wrapS = tiles2.wrapT = THREE.RepeatWrapping;
+  tiles2.repeat.set(10,10);
+  tiles2.anisotropy = 20;
+
+
+var insideFloor = new THREE.BoxBufferGeometry( 49, 0.1, 45 );
+
+tile= new THREE.MeshPhongMaterial();
+tile.map= tiles2;
+var insideTiles2 = new THREE.Mesh(insideFloor,tile);
+insideTiles2.receiveShadow = true;
+
+  scene.add(insideTiles2);
+insideTiles2.position.set(0,0.16,-3);
+}
+
+
 
 function loadModels()
 {

@@ -35,6 +35,21 @@ function UserControls() {
       case 50: //2
         setControlsFirstPerson();
         break;
+
+      case 90: // up
+
+        woodFloors();
+        break;
+
+      case 88: // up
+
+        tileFloors();
+        break;
+
+      case 67: // up
+
+        tile2Floors();
+        break;
     }
 
   };
@@ -69,6 +84,21 @@ function UserControls() {
 
       case 50: // 2
         setControlsFirstPerson();
+        break;
+
+      case 90: // z
+
+        woodFloors();
+        break;
+
+      case 88: // x
+
+        tileFloors();
+        break;
+
+      case 67: // c
+
+        tile2Floors();
         break;
     }
   };
