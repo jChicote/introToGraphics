@@ -28,10 +28,6 @@ function sunLight()
   //sunLight.shadowCameraVisible = true;
   scene.add( sunLight );
 
-  //This outputs the line guide of the direct light
-  var helper = new THREE.DirectionalLightHelper( sunLight, 5 );
-  scene.add( helper );
-
   //ambient light of scene
   ambient = new THREE.AmbientLight( 0xE6E0A1, 0.3 );
   scene.add( ambient );
