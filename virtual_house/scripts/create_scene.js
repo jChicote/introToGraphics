@@ -58,6 +58,21 @@ function CreateScene()
   cube_mesh.castShadow = true;
   cube_mesh.receiveShadow = true;
   scene.add( cube_mesh );*/
+    var wood = textureLoader.load('textures/woodfloor.jpg');
+  wood.wrapS = wood.wrapT = THREE.RepeatWrapping;
+  wood.repeat.set(10,10);
+  wood.anisotropy = 20;
+
+
+var insideFloor = new THREE.BoxBufferGeometry( 49, 0.1, 45 );
+
+tile= new THREE.MeshPhongMaterial();
+tile.map= wood;
+var insideWood = new THREE.Mesh(insideFloor,tile);
+insideWood.receiveShadow = true;
+
+  scene.add(insideWood);
+insideWood.position.set(0,0.16,-3);
 }
 
 function woodFloors()
