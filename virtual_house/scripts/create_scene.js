@@ -15,7 +15,7 @@ function CreateScene()
   var grassTexture = textureLoader.load('textures/grasslight-big.png');
   var bumpTexture = textureLoader.load('textures/Grass_001_DISP.png');
 
-  var geoFloor = new THREE.BoxBufferGeometry( 250, 0.1, 250 );
+  var geoFloor = new THREE.BoxBufferGeometry( 150, 0.1, 150 );
   grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
   bumpTexture.wrapS = bumpTexture.wrapT = THREE.RepeatWrapping;
 
