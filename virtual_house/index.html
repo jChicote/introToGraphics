@@ -34,22 +34,28 @@
       var info;
       var ratio = window.innerWidth/window.innerHeight;
 
+      scene = new THREE.Scene();
+      renderer = new THREE.WebGLRenderer({antialias: true});
+
       function init() {
         info = document.body.appendChild( document.createElement( 'div' ) );
-		    info.style.cssText = 'margin: 20px; position: absolute; ';
+		    info.style.cssText = 'margin: 20px; position: absolute; font-family:Arial, Helvetica, sans-serif; font-weight: bold; color: black; text-shadow: 1px, 1px, 4px, white;';
 		    info.innerHTML = '<p><button onclick=setControlsOrbit(); >Orbit (Default)</button> ' +
 				'<button onclick=setControlsFirstPerson(); >First Person</button></p>' +
 			  '<div id=msg ></div>';
 
-        scene = new THREE.Scene();
-        scene.fog = new THREE.Fog( 0xcce0ff, 70, 150 );
+        /*info.innerHTML = '<p>Controls<br />' +
+        '1 -- First Person || ' + '2 -- Orbit<br />' +
+        'z, x, c -- Floor Tiles<br />' +
+        'WASD -- Move (FPS) </p>' +
+        '<div id=msg ></div>';*/
 
+        scene.fog = new THREE.Fog( 0xcce0ff, 70, 150 );
         scene.background = new THREE.Color( 0xcce0ff );
 
-        renderer = new THREE.WebGLRenderer({antialias: true});
         renderer.setSize( window.innerWidth, window.innerHeight );
-
         renderer.shadowMap.enabled = true;
+        //renderer.shadowMap.autoUpdate = false;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
         document.body.appendChild( renderer.domElement );
@@ -198,7 +204,7 @@
       //var Animate = function () {}
 
       function animate() {
-        requestAnimationFrame (animate);
+        //requestAnimationFrame (animate);
 
         if ( controlsEnabled == true ) {
 
@@ -222,7 +228,7 @@
 
 				}
 
-        renderer.render(scene, camera);
+        //renderer.render(scene, camera);
 
       }
 
