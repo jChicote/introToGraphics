@@ -30,7 +30,7 @@
 
     <script>
       //Initialisers
-      var scene, camera, renderer, cdntrols;
+      var scene, camera, renderer, controls;
       var info;
       var ratio = window.innerWidth/window.innerHeight;
 
@@ -39,9 +39,18 @@
 
       function init() {
         info = document.body.appendChild( document.createElement( 'div' ) );
-		    info.style.cssText = 'margin: 20px; position: absolute; font-family:Arial, Helvetica, sans-serif; font-weight: bold; color: black; text-shadow: 1px, 1px, 4px, white;';
-		    info.innerHTML = '<p><button onclick=setControlsOrbit(); >Orbit (Default)</button> ' +
-				'<button onclick=setControlsFirstPerson(); >First Person</button></p>' +
+		    info.style.cssText =
+        'margin-left: 30px; margin-top: 30px; position: absolute;' +
+        'font-family: Monospace; font-size: 14px; font-weight: bold; text-shadow: 1px 1px 4px white; ';
+
+		    info.innerHTML =
+        '<p><span style="font-size:24px"; >Virtual House</span> ' +
+        '<br /><br />' +
+				'1: Orbit || 2: First Person<br/>' +
+        'WASD - Move (First Person)<br/>' +
+        'z/w/c: House Flooring' +
+        '<br /><br />' +
+        'Made by Jaiden, YuMing, Kingsley, Keith</p>'
 			  '<div id=msg ></div>';
 
         /*info.innerHTML = '<p>Controls<br />' +
