@@ -80,7 +80,7 @@
       //----------------------------VARIABLES---------------------------
       //global variables
       var materialFloor;
-      var spherelightGeometry = new THREE.SphereGeometry( 0.3, 15, 15 );
+      var spherelightGeometry = new THREE.SphereGeometry( 0.3, 9, 9 );
       var sphere_material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
       //var sphere_material;
       var cube_material;
@@ -116,7 +116,6 @@
       var light7;
       var light8;
       var light9;
-
 
       //model global variables
       var modelLoader = new THREE.OBJLoader();
@@ -174,9 +173,6 @@
       var orb8;
       var orb9;
 
-      //user control global variables
-
-
       init();
       animate();
       //Below will create scene objects/models
@@ -213,7 +209,6 @@
       //var Animate = function () {}
 
       function animate() {
-        //requestAnimationFrame (animate);
 
         if ( controlsEnabled == true ) {
 
@@ -236,12 +231,7 @@
 					prevTime = time;
 
 				}
-
-        //renderer.render(scene, camera);
-
       }
-
-
 
       //update function
       var MyUpdateLoop = function ( )

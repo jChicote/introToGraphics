@@ -19,9 +19,9 @@ function CreateScene()
   grassTexture.wrapS = grassTexture.wrapT = THREE.RepeatWrapping;
   bumpTexture.wrapS = bumpTexture.wrapT = THREE.RepeatWrapping;
 
-  grassTexture.repeat.set(10,10);
+  grassTexture.repeat.set(8,8);
   grassTexture.anisotropy = 20;
-  bumpTexture.repeat.set(10,10);
+  bumpTexture.repeat.set(8,8);
   bumpTexture.anisotropu = 20;
 
   materialFloor = new THREE.MeshPhongMaterial();

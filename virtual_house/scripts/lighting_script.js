@@ -83,7 +83,7 @@ function outdoorLight() {
   scene.add( orb2 );
 
   light3 = new THREE.PointLight( 0xff9115, 1, 20 );
-  light3.castShadow = true;
+  //light3.castShadow = true;
   light3.position.set(-3, 9, 21 );
   scene.add( light3 );
 
@@ -92,7 +92,7 @@ function outdoorLight() {
   scene.add( orb3 );
 
   light4 = new THREE.PointLight( 0xff9115, 1, 20 );
-  light4.castShadow = true;
+  //light4.castShadow = true;
   light4.position.set(-3, 24, 21 );
   scene.add( light4 );
 
@@ -100,7 +100,7 @@ function outdoorLight() {
   orb4.position.set(-3, 24, 18 );
   scene.add( orb4 );
 
-  light5 = new THREE.PointLight( 0xff9115, 3, 40 );
+  light5 = new THREE.PointLight( 0xff9115, 2, 40 );
   light5.castShadow = true;
   light5.position.set(-25, 24, -3 );
   scene.add( light5 );
@@ -109,7 +109,7 @@ function outdoorLight() {
   orb5.position.set(-25, 24, -3 );
   scene.add( orb5 );
 
-  light6 = new THREE.PointLight( 0xff9115, 3, 40 );
+  light6 = new THREE.PointLight( 0xff9115, 2, 40 );
   light6.castShadow = true;
   light6.position.set(25, 24, -3 );
   scene.add( light6 );
@@ -119,7 +119,7 @@ function outdoorLight() {
   scene.add( orb6 );
 
   light7 = new THREE.PointLight( 0xff9115, 1, 20 );
-  light7.castShadow = true;
+  //light7.castShadow = true;
   light7.position.set( 23, 8, -27  );
   scene.add( light7 );
 
@@ -128,7 +128,7 @@ function outdoorLight() {
   scene.add( orb7 );
 
   light8 = new THREE.PointLight( 0xff9115, 1, 20 );
-  light8.castShadow = true;
+  //light8.castShadow = true;
   light8.position.set( -23, 8, -27  );
   scene.add( light8 );
 
@@ -137,7 +137,7 @@ function outdoorLight() {
   scene.add( orb8 );
 
   light9 = new THREE.PointLight( 0xff9115, 1, 20 );
-  light9.castShadow = true;
+  //light9.castShadow = true;
   light9.position.set( -11, 8, -27  );
   scene.add( light9 );
 
