@@ -48,7 +48,7 @@
         '<br /><br />' +
 				'1: Orbit || 2: First Person<br/>' +
         'WASD - Move (First Person)<br/>' +
-        'z/w/c: House Flooring' +
+        'z/x/c: House Flooring' +
         '<br /><br />' +
         'Made by Jaiden, YuMing, Kingsley, Keith</p>'
 			  '<div id=msg ></div>';
@@ -70,9 +70,11 @@
         document.body.appendChild( renderer.domElement );
 
         setupControls();
-        //setControlsOrbit();
         setControlsFirstPerson();
+        //setControlsOrbit();
 
+
+        controls.enabled=true;
         scene.add( controls.getObject() );
         UserControls();
       }
@@ -212,7 +214,7 @@
 
         if ( controlsEnabled == true ) {
 
-				 var time = performance.now();
+				  var time = performance.now();
 					var delta =  ( time - prevTime ) / 1000;
 
 					velocity.x -= velocity.x * 5.0 * delta;
@@ -256,10 +258,6 @@
         camera.updateProjectionMatrix();
         renderer.render(scene,camera);
       };
-
-
-      //user controls function
-      UserControls();
 
       window.addEventListener( 'resize', MyResize );
 
