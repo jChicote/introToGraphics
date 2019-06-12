@@ -70,9 +70,11 @@
         document.body.appendChild( renderer.domElement );
 
         setupControls();
-        //setControlsOrbit();
         setControlsFirstPerson();
+        //setControlsOrbit();
 
+
+        controls.enabled=true;
         scene.add( controls.getObject() );
         UserControls();
       }
@@ -213,11 +215,12 @@
       //var Animate = function () {}
 
       function animate() {
-        //requestAnimationFrame (animate);
+
+        requestAnimationFrame (animate);
 
         if ( controlsEnabled == true ) {
 
-				 var time = performance.now();
+				  var time = performance.now();
 					var delta =  ( time - prevTime ) / 1000;
 
 					velocity.x -= velocity.x * 5.0 * delta;
@@ -237,7 +240,7 @@
 
 				}
 
-        //renderer.render(scene, camera);
+        renderer.render(scene, camera);
 
       }
 
@@ -266,10 +269,6 @@
         camera.updateProjectionMatrix();
         renderer.render(scene,camera);
       };
-
-
-      //user controls function
-      UserControls();
 
       window.addEventListener( 'resize', MyResize );
 
